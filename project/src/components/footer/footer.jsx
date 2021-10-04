@@ -43,16 +43,16 @@ export default function Footer() {
 
         <ul className="page-footer__socials">
           <li className="page-footer__socials-item">
-            <a className="page-footer__socials-link page-footer__socials-link--facebook"><span className="visually-hidden">Фейсбук</span></a>
+            <a className="page-footer__socials-link page-footer__socials-link--facebook" href="#"><span className="visually-hidden">Фейсбук</span></a>
           </li>
           <li className="page-footer__socials-item">
-            <a  className="page-footer__socials-link page-footer__socials-link--instagram"><span className="visually-hidden">Инстаграм</span></a>
+            <a  className="page-footer__socials-link page-footer__socials-link--instagram" href="#"><span className="visually-hidden">Инстаграм</span></a>
           </li>
           <li className="page-footer__socials-item">
-            <a className="page-footer__socials-link page-footer__socials-link--twitter"><span className="visually-hidden">Твиттер</span></a>
+            <a className="page-footer__socials-link page-footer__socials-link--twitter" href="#"><span className="visually-hidden">Твиттер</span></a>
           </li>
           <li className="page-footer__socials-item">
-            <a className="page-footer__socials-link page-footer__socials-link--youtube"><span className="visually-hidden">Ютуб</span></a>
+            <a className="page-footer__socials-link page-footer__socials-link--youtube" href="#"><span className="visually-hidden">Ютуб</span></a>
           </li>
         </ul>
       </div>
