@@ -126,6 +126,7 @@
     background: url("../../img/car-mobile.webp");
     top: 27%;
     left: 73%;
+    overflow: hidden;
   }
 
   .services-section__text {
@@ -154,6 +155,7 @@
     background: url("../../img/lock-mobile.webp") no-repeat;
     top: 27%;
     left: 73%;
+    overflow: hidden;
   }
 
   .services-section__text {
@@ -323,6 +325,10 @@
 }
 
 @media (min-width: $desktop-width) {
+  .services-section__wrapper {
+    margin-top: 33px;
+  }
+
   .services-section__tabs {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -8,7 +8,7 @@ export default function Footer() {
         <picture className="page-footer__picture">
           <source media="(min-width: 1200px)" srcSet="img/logo-desktop.svg" width="149" height="25"/>
           <source media="(min-width: 768px)" srcSet="img/logo-tablet.svg" width="133" height="22"/>
-          <img className="page-footer__logo" src="img/logo-mobile.svg" width="115" height="17" alt="Логотип"/>
+          <img className="page-footer__logo" src="img/logo-mobile.svg" width="117" height="19" alt="Логотип"/>
           </picture>
 
           <p className="page-footer__license">150015, г. Москва, ул. Московская, д. 32 Генеральная лицензия Банка России №1050 Ⓒ Лига Банк, 2019</p>

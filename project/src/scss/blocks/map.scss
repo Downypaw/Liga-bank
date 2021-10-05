@@ -39,11 +39,12 @@
 @media (min-width: $desktop-width) {
   .map {
     margin-bottom: 110px;
+    padding-top: 100px;
   }
 
   .map__title {
     font-size: 41px;
-    padding-top: 25px;
+    margin-top: 10px;
     margin-bottom: 75px;
   }
 }

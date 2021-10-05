@@ -16,17 +16,12 @@
 .slider__item--first {
   box-sizing: border-box;
   padding-left: 0;
-  margin: 0 4.69%;
   padding-bottom: 30px;
   position: relative;
-  background: url("../../img/black-card.webp") no-repeat 205px 35px,
-    url("../../img/white-card.webp") no-repeat 300px 10px,
+  background: url("../../img/black-card.webp") no-repeat 220px 35px,
+    url("../../img/white-card.webp") no-repeat 315px 10px,
     $highlight-color;
     background-size: 250px 165px, 250px 165px;
-
-    .slider__container {
-      padding-left: 0;
-    }
 }
 
 .slider__list {
@@ -167,7 +162,7 @@
   }
 
   .slider__container {
-    padding-left: 80px;
+    padding-left: 40px;
     padding-top: 47px;
   }
 
@@ -180,6 +175,10 @@
       linear-gradient(183.47deg, rgba(56, 65, 255, 0) 27.26%, #3841FF 97.14%) 410px 100px no-repeat,
       $highlight-color;
       background-size: 260px 180px, 260px 180px, 100% 300px, 179px 199px;
+
+      .slider__container {
+        padding-left: 0;
+      }
   }
 
   .slider__controls {
@@ -203,7 +202,7 @@
 
     .slider__description {
       width: 317px;
-      margin-top: 25px;
+      margin-top: 12px;
     }
   }
 
@@ -234,7 +233,7 @@
   }
 
   .slider__description {
-    margin-top: 32px;
+    margin-top: 17px;
     font-size: 22px;
     margin-bottom: 50px;
     max-width: 400px;
@@ -247,7 +246,7 @@
   }
 
   .slider__container {
-    padding-left: 268px;
+    padding-left: 170px;
     padding-top: 47px;
   }
 
@@ -302,7 +301,11 @@
 
   .slider__controls {
     left: 48.8%;
-    bottom: 30px;
+    bottom: 35px;
+
+    li {
+      margin-right: 20px;
+    }
   }
 
   .slider__item--second {
@@ -311,7 +314,7 @@
 
     .slider__description {
       width: 388px;
-      margin-top: 35px;
+      margin-top: 23px;
     }
   }
 

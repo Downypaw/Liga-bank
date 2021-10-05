@@ -81,11 +81,7 @@
 }
 
 .navigation__login-text {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  display: none;
 }
 
 .navigation--opened {
@@ -248,14 +244,12 @@
 
 @media (min-width: $desktop-width) {
   .navigation__login {
-    margin-left: 50px;
+    margin-left: 60px;
     position: static;
-    min-width: 200px;
   }
 
   .navigation__login-link {
     width: auto;
-    padding: 36px 0;
     padding-bottom: 15px;
     position: relative;
     font-size: 16px;
@@ -267,7 +261,8 @@
   }
 
   .navigation__login-text {
-    display: inline;
+    display: inline-block;
+    margin-top: 36px;
   }
 
   .navigation__link {
