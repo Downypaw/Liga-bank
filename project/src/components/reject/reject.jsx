@@ -12,13 +12,15 @@ export default function Reject() {
   const minCreditSum = activeOption === CreditTypeFieldValue.HYPOTHEC ? MIN_HYPOTHEC_SUM.toLocaleString() : MIN_AUTOCREDIT_SUM.toLocaleString();
 
   return (
-    <section className="reject">
-      <div className="reject__wrapper">
-        <p className="reject__message">
-          Наш банк не выдаёт {creditType} кредиты меньше {minCreditSum} рублей.
-        </p>
-        <p className="reject__offer">Попробуйте использовать другие параметры для расчёта.</p>
-      </div>
-    </section>
+    <div className="extra-wrapper">
+      <section className="reject">
+        <div className="reject__wrapper">
+          <p className="reject__message">
+            Наш банк не выдаёт {creditType} кредиты меньше {minCreditSum} рублей.
+          </p>
+          <p className="reject__offer">Попробуйте использовать другие параметры для расчёта.</p>
+        </div>
+      </section>
+    </div>
   );
 }

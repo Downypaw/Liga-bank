@@ -275,7 +275,7 @@
       width: 333px;
       height: 228px;
       background: url("../../img/black-card.webp");
-      right: 0;
+      right: 30px;
       top: 120px;
       z-index: 3;
 
@@ -290,7 +290,7 @@
       width: 333px;
       height: 228px;
       background: url("../../img/white-card.webp");
-      right: -100px;
+      right: -60px;
       top: 60px;
 
       @media (min-width: 1200px) {
@@ -309,8 +309,12 @@
   }
 
   .slider__item--second {
-    background: url('../../img/slider-2.webp') no-repeat, $slider-2-background;
+    background: url('../../img/slider-2.webp') -20px auto no-repeat, $slider-2-background;
     background-size: cover, auto auto;
+
+    @media (min-width: 1200px) {
+      background: url('../../img/slider-2.webp') auto auto, $slider-2-background;
+    }
 
     .slider__description {
       width: 388px;
@@ -319,8 +323,12 @@
   }
 
   .slider__item--third {
-    background: url('../../img/slider-3.webp') no-repeat, $slider-3-background;
+    background: url('../../img/slider-3.webp') -20px auto no-repeat, $slider-3-background;
     background-size: cover;
+
+    @media (min-width: 1200px) {
+      background: url('../../img/slider-3.webp') auto auto, $slider-2-background;
+    }
 
     .slider__link {
       padding: 14px 48px;

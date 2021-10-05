@@ -71,7 +71,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
   }
 
   const handleRangeChange = (evt) => {
-    onPercentChange(evt.target.value);
+    onPercentChange(Number(evt.target.value));
 
     onFeeChange(priceFieldValue * evt.target.value / 100);
   }
@@ -83,7 +83,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
 
       onFeeChange(value);
 
-      onPercentChange(percentResultValue);
+      onPercentChange(Number(percentResultValue));
     }
   }
 
@@ -92,7 +92,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
     if (value >= priceFieldValue || value < priceFieldValue * (defaultPercentValue / 100)) {
         onFeeChange(priceFieldValue * (defaultPercentValue / 100));
 
-        onPercentChange(defaultPercentValue);
+        onPercentChange(Number(defaultPercentValue));
     }
     setFeeFieldStatus(false);
   }

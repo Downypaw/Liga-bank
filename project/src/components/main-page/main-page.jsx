@@ -37,10 +37,10 @@ export default function MainPage() {
         <ServicesSection />
         <Calculator/>
         <Map/>
-        <Footer />
-        {isPopupLoginActive && <PopupLogin onCloseClick={() => setPopupLoginStatus(false)} onKeyDown={handleKeyDown}/>}
-        {isPopupSuccessActive && <PopupSuccess />}
-      </main>
+    </main>
+    <Footer />
+    {isPopupLoginActive && <PopupLogin onCloseClick={() => setPopupLoginStatus(false)} onKeyDown={handleKeyDown}/>}
+    {isPopupSuccessActive && <PopupSuccess />}
     </>
   );
 }
