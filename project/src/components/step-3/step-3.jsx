@@ -111,7 +111,7 @@ export default function Step3({activeOption, price, fee, term, onApplicationSubm
           />
 
           <label className="application__label visually-hidden" htmlFor="phone">Телефон</label>
-          <MaskedInput className="application__input" placeholder="Телефон" value={phoneNumber} mask="+7(111) 111-11-11" name="phoneNumber" onChange={(evt) => setPhoneNumber(evt.target.value)}/>
+          <MaskedInput type="tel" className="application__input" placeholder="Телефон" value={phoneNumber} mask="+7(111) 111-11-11" name="phoneNumber" onChange={(evt) => setPhoneNumber(evt.target.value)}/>
 
           <label className="application__label visually-hidden" htmlFor="email">E-mail</label>
           <input

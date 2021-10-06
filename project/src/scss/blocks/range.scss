@@ -16,7 +16,12 @@
   background-color: $decoration-color;
 
   &:hover {
-    background-color: darken($decoration-color, .5);
+    background-color: darken($decoration-color, 10%);
+  }
+
+  &:active,
+  &:focus {
+    background-color: $dark-highlight-color;
   }
 }
 
@@ -38,4 +43,13 @@
 .range__inscriptions {
   display: flex;
   justify-content: space-between;
+}
+
+.leaflet-marker-icon:hover {
+  opacity: 0.8;
+}
+
+.leaflet-marker-icon:active,
+.leaflet-marker-icon:focus {
+  border: 1px solid $basic-font-color;
 }

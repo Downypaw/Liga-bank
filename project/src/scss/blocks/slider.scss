@@ -60,6 +60,12 @@
   padding: 14px 30px;
   border-radius: 5px;
   font-weight: 500;
+
+  &:active,
+  &:focus {
+    color: $basic-font-color;
+    opacity: 0.9;
+  }
 }
 
 .slider__controls {
@@ -89,10 +95,27 @@
     background-color: $control-color;
     color: transparent;
     text-indent: -1000em;
+
+    &:hover {
+      background-color: darken($control-color, 10%);
+    }
+
+    &:active,
+    &:focus {
+      background-color: darken($basic-color, 15%);
+    }
   }
 
   .carousel-dots-active button {
     background-color: $basic-color;
+    &:hover {
+      background-color: darken($basic-color, 10%);
+    }
+
+    &:active,
+    &:focus {
+      background-color: $basic-color;
+    }
   }
 }
 

@@ -37,6 +37,17 @@
   cursor: pointer;
 
   background: url("../../img/arrow-icon.svg") 95% 50% no-repeat;
+
+  &:hover {
+    border-color: $highlight-color;
+    color: $highlight-color;
+  }
+
+  &:active,
+  &:focus, {
+    border-color: $dark-highlight-color;
+    color: $dark-highlight-color;
+  }
 }
 
 .calculator__select-content {
@@ -66,6 +77,11 @@
     opacity: 0.6;
     pointer-events: none;
   }
+}
+
+.calculator__radio-button:active +  .calculator__description,
+.calculator__radio-button:focus +  .calculator__description {
+  color: $dark-highlight-color;
 }
 
 .calculator__description {
@@ -265,6 +281,20 @@
   background-color: $highlight-color;
 }
 
+.calculator__checkbox:checked:hover + .calculator__label--checkbox::before,
+.calculator__checkbox:checked:active + .calculator__label--checkbox::before,
+.calculator__checkbox:checked:focus + .calculator__label--checkbox::before {
+  background-color: darken($highlight-color, 10%);
+}
+
+.calculator__checkbox:checked:hover + .calculator__label--checkbox {
+  color: $highlight-color;
+}
+
+.calculator__checkbox:checked:hover + .calculator__label--checkbox {
+  color: $dark-highlight-color;
+}
+
 .calculator__section--step3 {
   padding-top: 25px;
 }
@@ -304,7 +334,7 @@
     }
 
     .calculator__plus {
-      right: 0;
+      right: 2px;
 
       &::before {
         left: 20px;

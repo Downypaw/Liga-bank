@@ -4,8 +4,8 @@ import {MAX_PROPERTY_PRICE, MIN_PROPERTY_PRICE, DEFAULT_PRICE_VALUE, DEFAULT_PRO
   PROPERTY_PRICE_STEP, AUTO_PRICE_STEP, PERCENT_STEP, MIN_HYPOTHEC_TERM, MAX_HYPOTHEC_TERM, CreditTypeFieldValue,
   MAX_AUTO_PRICE, MIN_AUTO_PRICE, MIN_HYPOTHEC_SUM, MIN_AUTOCREDIT_SUM,
   MATERNAL_CAPITAL, MIN_AUTOCREDIT_TERM, MAX_AUTOCREDIT_TERM, HypothecRateType, HYPOTHEC_RATE_BOARD,
-  AutocreditRateType, AUTO_PRICE_BOARD, MOUNTH_COUNT, MIN_SHARE_OF_INCOME} from '../../const.js';
-import {roundNumber} from '../../util.js';
+  AutocreditRateType, AUTO_PRICE_BOARD, MOUNTH_COUNT, MIN_SHARE_OF_INCOME, DELETE_BUTTON_CODE, BACKSPACE_BUTTON_CODE} from '../../const.js';
+import {roundNumber, makeRightYearWordForm} from '../../util.js';
 import Offer from '../offer/offer';
 import Reject from '../reject/reject';
 import HypothecCheckbox from '../hypothec-checkbox/hypothec-checkbox';
@@ -43,10 +43,12 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
 
   const feeValue = !fee ? defaultFee : fee;
 
+  const termValue = !term ? minTerm : term;
+
   const handlePriceChange = (evt) => {
     const value = Number(evt.target.value);
-    if (typeof value === 'number') {
-      onPriceFieldValueChange(Number(evt.target.value))
+    if (!isNaN(evt.target.value) && value <= Number.MAX_SAFE_INTEGER) {
+      onPriceFieldValueChange(value)
     }
   }
 
@@ -62,28 +64,38 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
 
   const handleMinusButtonClick = (evt) => {
     evt.preventDefault();
-    onPriceFieldValueChange(priceFieldValue - priceStep);
+    if (priceFieldValue === ERROR_MESSAGE || feeValue === ERROR_MESSAGE) {
+      onPriceFieldValueChange(DEFAULT_PRICE_VALUE);
+      onFeeChange(defaultFee);
+    } else {
+      onPriceFieldValueChange(priceFieldValue - priceStep);
+    }
   }
 
   const handlePlusButtonClick = (evt) => {
     evt.preventDefault();
-    onPriceFieldValueChange(priceFieldValue + priceStep);
+    if (priceFieldValue === ERROR_MESSAGE || feeValue === ERROR_MESSAGE) {
+      onPriceFieldValueChange(DEFAULT_PRICE_VALUE);
+      onFeeChange(defaultFee);
+    } else {
+      onPriceFieldValueChange(priceFieldValue + priceStep);
+    }
   }
 
   const handleRangeChange = (evt) => {
-    onPercentChange(Number(evt.target.value));
+    onPercentChange(evt.target.value);
 
     onFeeChange(priceFieldValue * evt.target.value / 100);
   }
 
   const handleFeeValueChange = (evt) => {
-    const value = Number(evt.target.value.replace(/\s/g, ''));
-    if (typeof value === 'number') {
-      const percentResultValue = value / priceFieldValue * 100;
+    const value = evt.target.value.replace(/\s/g, '');
+    if (!isNaN(value) && value <= Number.MAX_SAFE_INTEGER) {
+      const percentResultValue = Number(value) / priceFieldValue * 100;
 
-      onFeeChange(value);
+      onFeeChange(Number(value));
 
-      onPercentChange(Number(percentResultValue));
+      onPercentChange(percentResultValue);
     }
   }
 
@@ -92,7 +104,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
     if (value >= priceFieldValue || value < priceFieldValue * (defaultPercentValue / 100)) {
         onFeeChange(priceFieldValue * (defaultPercentValue / 100));
 
-        onPercentChange(Number(defaultPercentValue));
+        onPercentChange(defaultPercentValue);
     }
     setFeeFieldStatus(false);
   }
@@ -119,7 +131,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
 
   const handleTermValueChange = (evt) => {
     const value = Number(evt.target.value);
-    if (typeof value === 'number') {
+    if (!isNaN(evt.target.value)) {
       onTermChange(value);
     }
   }
@@ -169,6 +181,19 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
 
   const mounthlyPayment = countMounthlyPayment();
 
+ const checkValue = (evt) => {
+   if (priceFieldValue === ERROR_MESSAGE || feeValue === ERROR_MESSAGE) {
+     onPriceFieldValueChange(DEFAULT_PRICE_VALUE);
+     onFeeChange(defaultFee);
+   }
+ }
+
+ const onTermRangeChange = (evt) => {
+   if (!isNaN(evt.target.value)) {
+     onTermChange(Number(evt.target.value));
+   }
+ }
+
   return (
     <>
       <section className="calculator__section calculator__section--2">
@@ -186,6 +211,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
               onFocus={() => setPriceFieldStatus(true)}
               onBlur={checkPrice}
               style={typeof priceFieldValue !== 'number' ? {color: 'red', borderColor: 'red'} : {}}
+              onClick={checkValue}
             />
             <button
               className="calculator__minus"
@@ -216,6 +242,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
             onBlur={checkFeeField}
             id="fee"
             style={typeof priceFieldValue !== 'number' ? {color: 'red', borderColor: 'red'} : {}}
+            onClick={checkValue}
           />
           <div className="range">
             <input
@@ -237,7 +264,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
             className="calculator__input"
             type="text"
             id="term"
-            value={`${!term ? minTerm : term}${!isTermFieldActive ? ' лет' : ''}`}
+            value={`${termValue}${!isTermFieldActive ? ` ${makeRightYearWordForm(termValue)}` : ''}`}
             onFocus={() => setTermFieldStatus(true)}
             onChange={handleTermValueChange}
             onBlur={checkTerm}
@@ -250,7 +277,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
               max={maxTerm}
               value={term}
               step="1"
-              onChange={(evt) => onTermChange(evt.target.value)}
+              onChange={onTermRangeChange}
             />
             <div className="range__inscriptions">
               <span className="range__inscription range__inscription--min">{minTerm}{minTerm === MIN_AUTOCREDIT_TERM ? ' год' : ' лет'}</span>
@@ -266,7 +293,7 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
             />
         }
       </section>
-      {creditSum >= minCreditSum
+      {creditSum >= minCreditSum && priceFieldValue >= minPrice && priceFieldValue <= maxPrice
         ? <Offer activeOption={activeOption} creditSum={creditSum} rate={rate} mounthlyPayment={Math.ceil(mounthlyPayment)} requiredIncome={Math.ceil(mounthlyPayment/(MIN_SHARE_OF_INCOME / 100))}/>
         : <Reject />
       }
@@ -276,12 +303,12 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
 
 Step2.propTypes = {
   activeOption: PropTypes.string.isRequired,
-  priceFieldValue: PropTypes.number.isRequired,
+  priceFieldValue: PropTypes.node.isRequired,
   percent: PropTypes.number.isRequired,
   term: PropTypes.number.isRequired,
   onPriceFieldValueChange: PropTypes.func.isRequired,
   onPercentChange: PropTypes.func.isRequired,
   onTermChange: PropTypes.func.isRequired,
-  fee: PropTypes.number.isRequired,
+  fee: PropTypes.node.isRequired,
   onFeeChange: PropTypes.func.isRequired,
 }

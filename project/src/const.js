@@ -76,3 +76,7 @@ export const CORD_X = 15;
 export const CORD_Y = 30;
 
 export const REDUSER_NAME = 'INTERACTION';
+
+export const DELETE_BUTTON_CODE = 46;
+
+export const BACKSPACE_BUTTON_CODE = 8;

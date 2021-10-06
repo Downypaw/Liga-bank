@@ -12,12 +12,15 @@ export default function Step1({activeOption, onOptionClick, isSelectActive, onSe
       <h3 className="calculator__section-title">Шаг 1. Цель кредита</h3>
 
       <div className="calculator__select">
-        <h3
+        <button
           className="calculator__select-title"
-          onClick={onSelectStatusChange}
+          onClick={(evt) => {
+            evt.preventDefault();
+            onSelectStatusChange();
+          }}
         >
           {activeOption}
-        </h3>
+        </button>
         <div className="calculator__select-content">
           <input className="calculator__radio-button" id="selectName0" type="radio" value="0" name="selectName" />
           <label className="calculator__description" htmlFor="selectName0">Выберите цель кредита</label>
