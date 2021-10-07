@@ -83,9 +83,9 @@ export default function Step2({activeOption, priceFieldValue, percent, term, onP
   }
 
   const handleRangeChange = (evt) => {
-    onPercentChange(evt.target.value);
+    onPercentChange(Number(evt.target.value));
 
-    onFeeChange(priceFieldValue * evt.target.value / 100);
+    onFeeChange(priceFieldValue * Number(evt.target.value) / 100);
   }
 
   const handleFeeValueChange = (evt) => {

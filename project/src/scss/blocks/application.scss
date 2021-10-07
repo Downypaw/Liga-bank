@@ -6,6 +6,10 @@
   border-bottom: 1px solid $border-color;
 }
 
+.application__label {
+  display: none;
+}
+
 .application__list {
   margin-bottom: 12px;
 }
