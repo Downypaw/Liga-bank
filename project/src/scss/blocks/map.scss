@@ -14,8 +14,12 @@
   height: 33px;
 }
 
-.map__container {
+.webp .map__container {
   background: url("../../img/map.webp") 50% 50%;
+}
+
+.no-webp .map__container {
+  background: url("../../img/map.png") 50% 50%;
 }
 
 @media (min-width: $tablet-width) {
