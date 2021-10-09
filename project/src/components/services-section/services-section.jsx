@@ -69,7 +69,7 @@ export default function ServicesSection() {
                   <li className="services-section__list-item">Разнообразные условия</li>
                   <li className="services-section__list-item">Возможность ежемесячной капитализации или вывод процентов на банковскую карту</li>
                 </ul>
-                <button className="services-section__button">Узнать подробнее</button>
+                <button className="services-section__button" tabIndex={offset === 0 ? 0 : -1}>Узнать подробнее</button>
               </div>
             </li>
             <li className={`services-section__item services-section__item--second ${activeTab === TabType.CREDIT ? 'services-section__item--displayed' : ''}`}>
@@ -93,7 +93,7 @@ export default function ServicesSection() {
                   <li className="services-section__list-item">Страхование жизни и здоровья</li>
                   <li className="services-section__list-item">Страхование недвижимости</li>
                 </ul>
-                <button className="services-section__button">Узнать подробнее</button>
+                <button className="services-section__button" tabIndex={offset === -2 * IMAGE_WIDTH ? 0 : -1}>Узнать подробнее</button>
               </div>
             </li>
             <li className={`services-section__item services-section__item--fourth ${activeTab === TabType.SERVICE ? 'services-section__item--displayed' : ''}`}>
@@ -103,7 +103,7 @@ export default function ServicesSection() {
                   <li className="services-section__list-item">Мобильный банк, <br/> который всегда под рукой</li>
                   <li className="services-section__list-item">Приложение Лига-проездной позволит вам оплачивать билеты по всему миру</li>
                 </ul>
-                <button className="services-section__button">Узнать подробнее</button>
+                <button className="services-section__button" tabIndex={offset === -3 * IMAGE_WIDTH ? 0 : -1}>Узнать подробнее</button>
               </div>
             </li>
           </ul>

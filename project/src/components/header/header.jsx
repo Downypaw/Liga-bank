@@ -13,7 +13,7 @@ export default function Header({onLoginClick, onKeyDown}) {
         <div className="page-header__left">
           <picture className="page-header__picture">
             <source media="(min-width: 1200px)" srcSet="img/logo-desktop.svg" width="149" height="25"/>
-            <source media="(min-width: 768px)" srcSet="img/logo-tablet.svg" width="133" height="22"/>
+            <source media="(min-width: 768px)" srcSet="img/logo-tablet.svg" width="135" height="24"/>
             <img className="page-header__logo" src="img/logo-mobile.svg" width="117" height="19" alt="Логотип"/>
           </picture>
         </div>

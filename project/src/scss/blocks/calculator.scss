@@ -71,8 +71,6 @@
 }
 
 .calculator__radio-button {
-  display: none;
-
   &:disabled + label {
     opacity: 0.6;
     pointer-events: none;
@@ -82,6 +80,14 @@
 .calculator__radio-button:active +  .calculator__description,
 .calculator__radio-button:focus +  .calculator__description {
   color: $dark-highlight-color;
+}
+
+.calculator__radio-button:nth-of-type(2):active +  .calculator__description,
+.calculator__radio-button:nth-of-type(2):focus +  .calculator__description,
+.calculator__radio-button:nth-of-type(3):active +  .calculator__description,
+.calculator__radio-button:nth-of-type(3):focus +  .calculator__description {
+  border: 1px solid $basic-font-color;
+  border-radius: 4px;
 }
 
 .calculator__description {

@@ -22,9 +22,9 @@ export default function Step1({activeOption, onOptionClick, isSelectActive, onSe
           {activeOption}
         </button>
         <div className="calculator__select-content">
-          <input className="calculator__radio-button" id="selectName0" type="radio" value="0" name="selectName" />
+          <input className="calculator__radio-button visually-hidden" id="selectName0" type="radio" value="0" name="selectName" />
           <label className="calculator__description" htmlFor="selectName0">Выберите цель кредита</label>
-          <input className="calculator__radio-button" id="selectName1" type="radio" value="1" name="selectName"/>
+          <input className="calculator__radio-button visually-hidden" id="selectName1" type="radio" value="1" name="selectName"/>
           <label
             className="calculator__description"
             htmlFor="selectName1"
@@ -32,7 +32,7 @@ export default function Step1({activeOption, onOptionClick, isSelectActive, onSe
           >
             Ипотечное кредитование
           </label>
-          <input className="calculator__radio-button" id="selectName2" type="radio" value="2" name="selectName"/>
+          <input className="calculator__radio-button visually-hidden" id="selectName2" type="radio" value="2" name="selectName"/>
           <label
             className="calculator__description"
             htmlFor="selectName2"

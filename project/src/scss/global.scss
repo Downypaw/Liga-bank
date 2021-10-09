@@ -14,13 +14,6 @@ select {
   appearance: none;
 }
 
-:active,
-:hover,
-:focus {
-  outline: 0;
-  outline-offset: 0;
-}
-
 .leaflet-container {
   height: 381px;
 }

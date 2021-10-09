@@ -2,9 +2,13 @@
   min-height: 226px;
   background: $highlight-color;
   width: 100%;
-  overflow: hidden;
   position: relative;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.slider_tab-wrapper {
+  width: 100%;
+  height: 100%;
 }
 
 .slider__container {
