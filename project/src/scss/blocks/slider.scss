@@ -84,13 +84,12 @@
 
 .slider__controls {
   @include list;
-  position: absolute;
   bottom: 5px;
   left: 45%;
-  display: flex;
+  position: absolute;
+  display: flex !important;
   z-index: 10;
   flex-direction: row;
-  transform: rotate(-90deg);
 
   li {
     width: 6px;
